@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.laodeng</groupId>
+  <artifactId>crm</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>war</packaging>
+
+  <properties>
+    <!-- maven构建项目的时候是UTF-8，避免了中文乱码 -->
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <!-- 指定编译java代码使用的版本 -->
+    <maven.compiler.source>16</maven.compiler.source>
+    <!-- 你的java项目应该运行在什么样的jdk版本 -->
+    <maven.compiler.target>16</maven.compiler.target>
+  </properties>
+
+  <dependencies>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.12</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>jakarta.servlet</groupId>
+      <artifactId>jakarta.servlet-api</artifactId>
+      <version>5.0.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>jakarta.servlet.jsp</groupId>
+      <artifactId>jakarta.servlet.jsp-api</artifactId>
+      <version>3.0.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.mybatis</groupId>
+      <artifactId>mybatis</artifactId>
+      <version>3..4.6</version>
+    </dependency>
+
+    <dependency>
+      <groupId>jakarta.servlet.jsp.jstl</groupId>
+      <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
+      <version>2.0.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.glassfish.web</groupId>
+      <artifactId>jakarta.servlet.jsp.jstl</artifactId>
+      <version>2.0.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.taglibs</groupId>
+      <artifactId>taglibs-standard-spec</artifactId>
+      <version>1.2.5</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.taglibs</groupId>
+      <artifactId>taglibs-standard-impl</artifactId>
+      <version>1.2.5</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-core</artifactId>
+      <version>2.1.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>2.1.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-annotations</artifactId>
+      <version>2.1.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>8.0.27</version>
+    </dependency>
+
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+      <version>1.2.17</version>
+    </dependency>
+
+  </dependencies>
+  <build>
+    <resources>
+      <!--目的是把src/main/java目录中的xml文件包含到输出结果中.输出到classes目录中-->
+      <resource>
+        <directory>src/main/java</directory><!--所在的目录-->
+        <includes><!--包含目录下的.properties/.xml文件都会扫描到-->
+          <include>**/*.properties</include>
+          <include>**/*.xml</include>
+        </includes>
+        <filtering>false</filtering>
+      </resource>
+    </resources>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.3.1</version>
+      </plugin>
+    </plugins>
+  </build>
+</project>
